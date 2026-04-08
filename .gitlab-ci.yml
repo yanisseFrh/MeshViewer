@@ -81,7 +81,7 @@ release-github:
   script:
     - apk add --no-cache curl jq git
 
-    - export GITHUB_REPO="yanisseF69/MeshViewer"
+    - export GITHUB_REPO="yanisseFrh/MeshViewer"
     - export RELEASE_NAME="Continuous Build"
     - export ZIP_PATH="build-windows/MeshViewer-Windows.zip"
     - export APPIMAGE_PATH="build-linux/MeshViewer-linux_x86_64.AppImage"
