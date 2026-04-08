@@ -9,11 +9,8 @@ OpenGLWidget::~OpenGLWidget() {
     makeCurrent();
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    delete shaderLight;
-    delete shaderTexture;
-    delete texture;
-    shaderLight = shaderTexture = shaderCurrent = nullptr;
-    texture = nullptr;
+    texture->destroy();
+    shaderCurrent = nullptr;
     doneCurrent();
 }
 
@@ -50,7 +47,7 @@ void OpenGLWidget::loadTexture(const QString& textureFilePath) {
     image = image.convertToFormat(QImage::Format_RGBA8888);
 
     useTexCoords = true;
-    texture = new QOpenGLTexture(image.mirrored(false, true));
+    texture = std::make_unique<QOpenGLTexture>(image.mirrored(false, true));
     texture->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     texture->setMagnificationFilter(QOpenGLTexture::Linear);
     texture->setWrapMode(QOpenGLTexture::Repeat);
@@ -109,9 +106,9 @@ void OpenGLWidget::updateMeshBuffers() {
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
         glEnableVertexAttribArray(2);
 
-        shaderCurrent = shaderTexture;
+        shaderCurrent = shaderTexture.get();
     } else {
-        shaderCurrent = shaderLight;
+        shaderCurrent = shaderLight.get();
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -137,17 +134,17 @@ void OpenGLWidget::initializeGL() {
     glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 
 
-    shaderLight = new QOpenGLShaderProgram(this);
+    shaderLight = std::make_unique<QOpenGLShaderProgram>(this);
     shaderLight->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexShader);
     shaderLight->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentShader);
     shaderLight->link();
 
-    shaderTexture = new QOpenGLShaderProgram(this);
+    shaderTexture = std::make_unique<QOpenGLShaderProgram>(this);
     shaderTexture->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexTexShader);
     shaderTexture->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentTexShader);
     shaderTexture->link();
 
-    shaderCurrent = shaderLight;
+    shaderCurrent = shaderLight.get();
 
     emit verticesChanged(0);
     emit trianglesChanged(0);

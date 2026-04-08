@@ -70,13 +70,14 @@ void Camera::setAngleY(float y) {
 
 void Camera::initialize(QVector3D center, float radius) {
     setTarget(center);
-    QVector3D initPos = center + QVector3D(0, 0, radius * 2.0f + 1);
-    setPosition(initPos);
-    distance = (initPos - center).length();
-    setAngleX(0);
-    setAngleY(0);
+    distance = radius * 2.0f + 1.0f;
+
+    yaw = -90.0f;
+    pitch = 0.0f;
 
     updateCameraVectors();
+
+    position = target - front * distance;
 }
 
 void Camera::orbit(float xoffset, float yoffset, bool constrainPitch) {

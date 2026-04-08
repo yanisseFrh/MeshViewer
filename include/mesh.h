@@ -2,7 +2,6 @@
 #define MESH_H
 
 #include <vector>
-#include <QOpenGLFunctions>
 
 #include "vertex.h"
 #include "triangle.h"
@@ -21,7 +20,7 @@ enum MeshError {
 /**
  * @brief The Mesh class, used for mesh loading and processing.
  */
-class Mesh : public QOpenGLFunctions
+class Mesh
 {
 public:
     Mesh();
@@ -107,6 +106,11 @@ public:
      * @return The radius of the mesh.
      */
     float getBoundingRadius() const;
+
+    /**
+     * @brief Center the mesh to the origin (to avoid camera issues)
+     */
+    void centerToOrigin();
 
     /**
      * @brief Normalize the mesh, in case of the radius is too large for the camera.

@@ -149,6 +149,7 @@ int Mesh::loadOFF(const char* link) {
     }
 
     meshFile.close();
+    centerToOrigin();
     sew();
     computeNormals();
 
@@ -226,6 +227,7 @@ int Mesh::loadOBJ(const char* link) {
     }
 
     meshFile.close();
+    centerToOrigin();
     sew();
     if (tempNormals.empty()) computeNormals();
     if (!tempTexCoords.empty()) hasTexCoords = true;
@@ -281,6 +283,7 @@ int Mesh::loadTXT(const char* link) {
     meshFile.close();
 
     removeSuperTriangle();
+    centerToOrigin();
     sew();
     computeNormals();
 
@@ -483,6 +486,29 @@ float Mesh::getBoundingRadius() const {
         maxDist = std::max(maxDist, (v.position - center).length());
     }
     return maxDist;
+}
+
+void Mesh::centerToOrigin() {
+    if (vertices.empty()) return;
+
+    QVector3D min = vertices[0].position;
+    QVector3D max = vertices[0].position;
+
+    for (const auto& v : vertices) {
+        QVector3D pos = v.position;
+        min.setX(std::min(min.x(), pos.x()));
+        min.setY(std::min(min.y(), pos.y()));
+        min.setZ(std::min(min.z(), pos.z()));
+        max.setX(std::max(max.x(), pos.x()));
+        max.setY(std::max(max.y(), pos.y()));
+        max.setZ(std::max(max.z(), pos.z()));
+    }
+
+    QVector3D center = (min + max) * 0.5f;
+
+    for (auto& v : vertices) {
+        v.position -= center;
+    }
 }
 
 void Mesh::initializeSuperTriangle() {

@@ -7,6 +7,7 @@
 #include <QOpenGLTexture>
 #include <QMouseEvent>
 #include <QWheelEvent>
+#include <memory>
 
 #include "camera.h"
 #include "mesh.h"
@@ -46,10 +47,10 @@ protected:
     GLuint VAO;
     GLuint VBO;
     GLuint EBO;
-    QOpenGLShaderProgram *shaderLight;
-    QOpenGLShaderProgram *shaderTexture;
+    std::unique_ptr<QOpenGLShaderProgram> shaderLight;
+    std::unique_ptr<QOpenGLShaderProgram> shaderTexture;
     QOpenGLShaderProgram *shaderCurrent;
-    QOpenGLTexture *texture;
+    std::unique_ptr<QOpenGLTexture> texture;
 
     Camera camera;
     QPointF lastMousePos;
