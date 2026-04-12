@@ -31,19 +31,19 @@ TEST_F(MeshTest, EmptyMeshHasNoVertices) {
 }
 
 TEST_F(MeshTest, ClearMesh) {
-    mesh.vertices.push_back(QVector3D(0.0f,0.0f,0.0f));
-    mesh.vertices.push_back(QVector3D(1.0f,0.0f,0.0f));
-    mesh.vertices.push_back(QVector3D(0.0f,1.0f,0.0f));
-    mesh.vertices.push_back(QVector3D(0.0f,0.0f,1.0f));
+    mesh.vertices.push_back(Node(0.0f,0.0f,0.0f));
+    mesh.vertices.push_back(Node(1.0f,0.0f,0.0f));
+    mesh.vertices.push_back(Node(0.0f,1.0f,0.0f));
+    mesh.vertices.push_back(Node(0.0f,0.0f,1.0f));
     mesh.clear();
     EXPECT_TRUE(mesh.vertices.empty()) << "Vertices vector not empty\n";
 }
 
 TEST_F(MeshTest, GetIndices) {
-    mesh.vertices.push_back(Vertex(0.0f,0.0f,0.0f));
-    mesh.vertices.push_back(Vertex(1.0f,0.0f,0.0f));
-    mesh.vertices.push_back(Vertex(0.0f,1.0f,0.0f));
-    mesh.vertices.push_back(Vertex(0.0f,0.0f,1.0f));
+    mesh.vertices.push_back(Node(0.0f,0.0f,0.0f));
+    mesh.vertices.push_back(Node(1.0f,0.0f,0.0f));
+    mesh.vertices.push_back(Node(0.0f,1.0f,0.0f));
+    mesh.vertices.push_back(Node(0.0f,0.0f,1.0f));
     mesh.faces.push_back(Triangle(0,1,2));
     mesh.faces.push_back(Triangle(2,1,3));
 
@@ -68,14 +68,14 @@ TEST_F(MeshTest, HasTextures) {
 
 TEST_F(MeshTest, Sew) {
     mesh.vertices = {
-        Vertex(0.0f, 0.0f, 0.0f),
-        Vertex(1.0f, 0.0f, 0.0f),
-        Vertex(1.0f, 1.0f, 0.0f),
-        Vertex(0.0f, 1.0f, 0.0f),
-        Vertex(0.0f, 0.0f, 1.0f),
-        Vertex(1.0f, 0.0f, 1.0f),
-        Vertex(1.0f, 1.0f, 1.0f),
-        Vertex(0.0f, 1.0f, 1.0f)
+        Node(0.0f, 0.0f, 0.0f),
+        Node(1.0f, 0.0f, 0.0f),
+        Node(1.0f, 1.0f, 0.0f),
+        Node(0.0f, 1.0f, 0.0f),
+        Node(0.0f, 0.0f, 1.0f),
+        Node(1.0f, 0.0f, 1.0f),
+        Node(1.0f, 1.0f, 1.0f),
+        Node(0.0f, 1.0f, 1.0f)
     };
 
     mesh.faces = {

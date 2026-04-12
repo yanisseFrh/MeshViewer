@@ -33,6 +33,8 @@ private:
 
     void handleMeshError(int err);
     void handleTextureMessage(QString filename);
+    void setTrianglesCount(unsigned int count);
+    void setVerticesCount(unsigned int count);
 
     Ui::MainWindow *ui;
     QTimer *errorTimer;

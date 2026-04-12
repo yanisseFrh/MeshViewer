@@ -6,6 +6,8 @@
 #include "vertex.h"
 #include "triangle.h"
 
+typedef Vertex<float> Node;
+
 /**
  * @brief The MeshError enum who returns error int type.
  */
@@ -25,7 +27,7 @@ class Mesh
 public:
     Mesh();
 
-    const std::vector<Vertex> &getVertices() const;
+    const std::vector<Node> &getVertices() const;
     const std::vector<unsigned int> getIndices() const;
     const bool &hasTexture() const;
 
@@ -232,7 +234,7 @@ protected:
      */
     void removeSuperTriangle();
 
-    std::vector<Vertex> vertices;
+    std::vector<Node> vertices;
     std::vector<Triangle> faces;
     float normCoeff;
     bool hasTexCoords;

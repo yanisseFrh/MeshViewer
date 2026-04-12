@@ -21,15 +21,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setWindowTitle("Mesh Viewer");
     scene = new QGraphicsScene(this);
+    ui->deleteTexAction->hide();
     ui->graphicsView->setScene(scene);
 
     connect(ui->actionLoad, &QAction::triggered, this, &MainWindow::onActionLoad);
-    connect(ui->openGLWidget, &OpenGLWidget::verticesChanged, this, [=](unsigned int count) {
-        ui->verticesCount->setText(QString::number(count));
-    });
-    connect(ui->openGLWidget, &OpenGLWidget::trianglesChanged, this, [=](unsigned int count) {
-        ui->trianglesCount->setText(QString::number(count));
-    });
+    connect(ui->openGLWidget, &OpenGLWidget::verticesChanged, this, &MainWindow::setVerticesCount);
+    connect(ui->openGLWidget, &OpenGLWidget::trianglesChanged, this, &MainWindow::setTrianglesCount);
     connect(ui->wireframeCheck, &QCheckBox::toggled,
             ui->openGLWidget, &OpenGLWidget::setWireframe);
     connect(errorTimer, SIGNAL(timeout()), this, SLOT(clearErrorLabel()));
@@ -37,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->uploadTexAction, &QPushButton::clicked, this, &MainWindow::onLoadTexAction);
     connect(ui->deleteTexAction, &QPushButton::clicked, this, &MainWindow::onDeleteTexAction);
     connect(ui->openGLWidget, &OpenGLWidget::textureChanged, this, &MainWindow::updateTextureDisplay);
-
 
 }
 
@@ -94,12 +90,16 @@ void MainWindow::onLoadTexAction(){
     if (!filename.isEmpty()) {
         ui->openGLWidget->loadTexture(filename);
         handleTextureMessage(filename);
+        ui->uploadTexAction->hide();
+        ui->deleteTexAction->show();
     }
 }
 
 void MainWindow::onDeleteTexAction() {
     ui->openGLWidget->deleteTexture();
     handleTextureMessage(QString());
+    ui->uploadTexAction->show();
+    ui->deleteTexAction->hide();
 }
 
 void MainWindow::updateTextureDisplay(QImage currentTexture) {
@@ -154,4 +154,12 @@ void MainWindow::handleTextureMessage(QString filename) {
         QString baseName = fileInfo.fileName();
         ui->textureLabel->setText(baseName);
     }
+}
+
+void MainWindow::setTrianglesCount(unsigned int count){
+    ui->trianglesCount->setText(QString::number(count));
+}
+
+void MainWindow::setVerticesCount(unsigned int count){
+    ui->verticesCount->setText(QString::number(count));
 }

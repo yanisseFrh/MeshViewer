@@ -21,7 +21,7 @@ Load, wiew and export 3D objects and point clouds easly.
 
 ## Overview
 
-<img src="https://github.com/yanisseF69/MeshViewer/blob/main/resources/screenshots/app.png" alt="App screenshot"/>
+<img src="https://github.com/yanisseFrh/MeshViewer/blob/main/resources/screenshots/app.png" alt="App screenshot"/>
 
 ## Features
 
@@ -33,7 +33,7 @@ Load, wiew and export 3D objects and point clouds easly.
 
 ## Installation
 
-You can download the windows (.zip with all the .dlls needed) or the linux (AppImage) version [here](https://github.com/yanisseF69/MeshViewer/releases/tag/continuous).
+You can download the windows (.zip with all the .dlls needed) or the linux (AppImage) version [here](https://github.com/yanisseFrh/MeshViewer/releases/tag/continuous).
 
 ### Prerequisites for compilation
 - Qt 6.6+
@@ -68,7 +68,7 @@ You can :
 
 After loading a file (.txt point cloud), we zoomed in it and displayed only the triangular mesh by activating the **wireframe** checkbox.
 
-<img src="https://github.com/yanisseF69/MeshViewer/blob/main/resources/screenshots/base&wireframe.png" alt="Base vs wireframe"/>
+<img src="https://github.com/yanisseFrh/MeshViewer/blob/main/resources/screenshots/base&wireframe.png" alt="Base vs wireframe"/>
 
 
 ## Project structure
@@ -87,4 +87,4 @@ MeshViewer/
 
 ## Author
 
-Developped by **Yanisse F.** — [GitHub](https://github.com/yanisseF69)
+Developped by **Yanisse F.** — [GitHub](https://github.com/yanisseFrh)

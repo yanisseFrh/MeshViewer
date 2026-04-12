@@ -35,4 +35,3 @@ std::pair<int, int> Triangle::findCommonEdge(const Triangle &t) const {
     return std::make_pair(-1, -1);
 
 }
-

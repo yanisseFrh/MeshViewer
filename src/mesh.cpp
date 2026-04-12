@@ -11,7 +11,7 @@
 
 Mesh::Mesh() : normCoeff(0.0f), hasTexCoords(false) {}
 
-const std::vector<Vertex> &Mesh::getVertices() const {
+const std::vector<Node> &Mesh::getVertices() const {
     return vertices;
 }
 
@@ -129,7 +129,7 @@ int Mesh::loadOFF(const char* link) {
         if (!(meshFile >> x >> y >> z)) {
             return MeshError::READ;
         }
-        vertices.push_back(Vertex(x, y, z));
+        vertices.push_back(Node(x, y, z));
     }
 
     for (int i = 0; i < numFaces; ++i) {
@@ -207,7 +207,7 @@ int Mesh::loadOBJ(const char* link) {
 
                 vi--; ni--; ti--;
 
-                Vertex v(tempPositions[vi]);
+                Node v(tempPositions[vi]);
                 if (ni < tempNormals.size() && ni >= 0) {
                     v.normal = tempNormals[ni];
                 }
@@ -341,20 +341,20 @@ int Mesh::saveOBJ(const char *link) const {
         return MeshError::SAVE;
     }
 
-    for (const Vertex& v : vertices) {
+    for (const Node& v : vertices) {
         meshFile << "v " << v.position.x() << " " << v.position.y() << " " << v.position.z() << "\n";
     }
 
     bool hasTexCoords = !vertices.empty() && (vertices[0].texCoords != QVector2D());
     if (hasTexCoords) {
-        for (const Vertex& v : vertices) {
+        for (const Node& v : vertices) {
             meshFile << "vt " << v.texCoords.x() << " " << v.texCoords.y() << "\n";
         }
     }
 
     bool hasNormals = !vertices.empty() && (vertices[0].normal != QVector3D());
     if (hasNormals) {
-        for (const Vertex& v : vertices) {
+        for (const Node& v : vertices) {
             meshFile << "vn " << v.normal.x() << " " << v.normal.y() << " " << v.normal.z() << "\n";
         }
     }
@@ -512,9 +512,9 @@ void Mesh::centerToOrigin() {
 }
 
 void Mesh::initializeSuperTriangle() {
-    vertices.push_back(QVector3D(-100000.0f, -100000.0f, 0.0f));
-    vertices.push_back(QVector3D(100000.0f, -100000.0f, 0.0f));
-    vertices.push_back(QVector3D(0.0f, 100000.0f, 0.0f));
+    vertices.push_back(Node(-100000.0f, -100000.0f, 0.0f));
+    vertices.push_back(Node(100000.0f, -100000.0f, 0.0f));
+    vertices.push_back(Node(0.0f, 100000.0f, 0.0f));
     faces.push_back(Triangle(0, 1, 2));
 }
 
@@ -735,7 +735,7 @@ int Mesh::pointInTriangle(int p, int triIndex) const {
 }
 
 int Mesh::insert(float x, float y, float z) {
-    vertices.push_back(QVector3D(x, y, z));
+    vertices.push_back(Node(x, y, z));
     int pIndex = vertices.size() - 1;
 
     int containingTriangle = -1;
