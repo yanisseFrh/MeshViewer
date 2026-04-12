@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['initializesupertriangle_0',['initializeSuperTriangle',['../classMesh.html#a6940d673430cbc827ea1d283a7eec75a',1,'Mesh']]],
-  ['insert_1',['insert',['../classMesh.html#a0d10ce3845704916095a5f8c084caab1',1,'Mesh']]],
-  ['isincircumcirclenorm_2',['isInCircumcircleNorm',['../classMesh.html#a451d0420679b6396f7c72e5e1368b4f2',1,'Mesh']]],
-  ['islocallydelaunay_3',['isLocallyDelaunay',['../classMesh.html#a1977c7c99c32a55604c101e7b0341119',1,'Mesh']]]
+  ['getboundingradius_0',['getBoundingRadius',['../classMesh.html#aecf0b14e57804c6eae7b927330c76288',1,'Mesh']]],
+  ['getcenter_1',['getCenter',['../classMesh.html#a207eaa90b815def85618cff6134158b6',1,'Mesh']]]
 ];

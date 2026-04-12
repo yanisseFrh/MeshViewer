@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointintriangle_0',['pointInTriangle',['../classMesh.html#ae0fae43c0d69625138c866a3878be7a6',1,'Mesh']]]
+  ['normalize_0',['normalize',['../classMesh.html#ae112f65fe9dd4221e505a2db2a70a210',1,'Mesh']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['facearea_0',['faceArea',['../classMesh.html#a67d9b4013ab7d8c32050ea768c46c5cc',1,'Mesh']]],
-  ['findneighbor_1',['findNeighbor',['../classMesh.html#a0c5ad96ef4f1c8d3b23d03e8aed98f50',1,'Mesh']]]
+  ['edgeflip_0',['edgeFlip',['../classMesh.html#a8926a81269c4a0e3692aa42ec3413a60',1,'Mesh']]],
+  ['edgekeyhash_1',['EdgeKeyHash',['../structEdgeKeyHash.html',1,'']]],
+  ['edgesplit_2',['edgeSplit',['../classMesh.html#a8110387c2dbd037ed8f4983f0228fcd2',1,'Mesh']]]
 ];

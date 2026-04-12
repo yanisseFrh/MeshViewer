@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getboundingradius_0',['getBoundingRadius',['../classMesh.html#aecf0b14e57804c6eae7b927330c76288',1,'Mesh']]],
-  ['getcenter_1',['getCenter',['../classMesh.html#a207eaa90b815def85618cff6134158b6',1,'Mesh']]]
+  ['facearea_0',['faceArea',['../classMesh.html#a67d9b4013ab7d8c32050ea768c46c5cc',1,'Mesh']]],
+  ['findneighbor_1',['findNeighbor',['../classMesh.html#a0c5ad96ef4f1c8d3b23d03e8aed98f50',1,'Mesh']]]
 ];

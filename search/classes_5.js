@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_0',['Vertex',['../structVertex.html',1,'']]]
+  ['triangle_0',['Triangle',['../structTriangle.html',1,'']]]
 ];

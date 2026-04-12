@@ -85,93 +85,95 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;vertex.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;triangle.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum</span> MeshError {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    OK=0,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    FORMAT=1,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    READ=2,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    SAVE=3,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    UNKNOWN</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classMesh.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classMesh.html">Mesh</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="classMesh.html">Mesh</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp;getVertices() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> std::vector&lt;unsigned int&gt; getIndices() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;hasTexture() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a7008e23cbaacd2878b7e81a01ac5d96b">clear</a>();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#ab57edd37f4de1c37acbf10951fd61751">sew</a>();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a45364421e69c3e2f823074a94faaac10">loadFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a6cad93169f7bfeba3df0df18cf9b8dd9">loadOFF</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a44cd27ac865af25478985382dda523e9">loadOBJ</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a392395eb4ec747a1cdfd61621b425295">loadTXT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a07f5a934061e9ea2183a85747049b80e">saveFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a41b93634024808b5e7fea354c3f7c9c7">saveOFF</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a60648425a5dae4f7780c47584e30d172">saveOBJ</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#ab00c68a9d76b564c0f0b402e784e6e4d">saveTXT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    QVector3D <a class="code hl_function" href="classMesh.html#a207eaa90b815def85618cff6134158b6">getCenter</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#aecf0b14e57804c6eae7b927330c76288">getBoundingRadius</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#abd9f92394e0119f73e95530e50eb0c94">centerToOrigin</a>();</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#ae112f65fe9dd4221e505a2db2a70a210">normalize</a>();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a169c28de22cdaa05e9bca7b514406397">deNormalize</a>();</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">typedef</span> <a class="code hl_struct" href="structVertex.html">Vertex&lt;float&gt;</a> <a class="code hl_struct" href="structVertex.html">Node</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">enum</span> MeshError {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    OK=0,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    FORMAT=1,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    READ=2,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    SAVE=3,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    UNKNOWN</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classMesh.html">   25</a></span><span class="keyword">class </span><a class="code hl_class" href="classMesh.html">Mesh</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classMesh.html">Mesh</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> std::vector&lt;Node&gt; &amp;getVertices() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> std::vector&lt;unsigned int&gt; getIndices() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;hasTexture() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a7008e23cbaacd2878b7e81a01ac5d96b">clear</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#ab57edd37f4de1c37acbf10951fd61751">sew</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a45364421e69c3e2f823074a94faaac10">loadFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a6cad93169f7bfeba3df0df18cf9b8dd9">loadOFF</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a44cd27ac865af25478985382dda523e9">loadOBJ</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a392395eb4ec747a1cdfd61621b425295">loadTXT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a07f5a934061e9ea2183a85747049b80e">saveFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a41b93634024808b5e7fea354c3f7c9c7">saveOFF</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a60648425a5dae4f7780c47584e30d172">saveOBJ</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#ab00c68a9d76b564c0f0b402e784e6e4d">saveTXT</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* link) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    QVector3D <a class="code hl_function" href="classMesh.html#a207eaa90b815def85618cff6134158b6">getCenter</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#aecf0b14e57804c6eae7b927330c76288">getBoundingRadius</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#abd9f92394e0119f73e95530e50eb0c94">centerToOrigin</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#ae112f65fe9dd4221e505a2db2a70a210">normalize</a>();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a169c28de22cdaa05e9bca7b514406397">deNormalize</a>();</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a0c5ad96ef4f1c8d3b23d03e8aed98f50">findNeighbor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> triIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#a67d9b4013ab7d8c32050ea768c46c5cc">faceArea</a>(<span class="keywordtype">int</span> faceIndex) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#aa365461672f50bdcfbc8801d81a13114">computeNormals</a>();</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#af39a2a23e4238fe6a3c1120890e36cf3">triangleSplit</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> triIndex);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a8926a81269c4a0e3692aa42ec3413a60">edgeFlip</a>(<span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a8110387c2dbd037ed8f4983f0228fcd2">edgeSplit</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#a5a02fa7197ee462dfcc4b23b4daf249d">orientationTest</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> q, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#ae0fae43c0d69625138c866a3878be7a6">pointInTriangle</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> triIndex) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a0d10ce3845704916095a5f8c084caab1">insert</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classMesh.html#a1977c7c99c32a55604c101e7b0341119">isLocallyDelaunay</a>(<span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classMesh.html#a451d0420679b6396f7c72e5e1368b4f2">isInCircumcircleNorm</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> d) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a110e90a73432fb80aeba321830e2cbc7">lawsonAlgorithm</a>();</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a7f87338180f9395f7f88ebf92123f4fa">lawsonLocalUpdate</a>(<span class="keywordtype">int</span> p);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a6940d673430cbc827ea1d283a7eec75a">initializeSuperTriangle</a>();</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#aea1b11f590a16be9595cc173cb885f7b">removeSuperTriangle</a>();</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    std::vector&lt;Vertex&gt; vertices;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    std::vector&lt;Triangle&gt; faces;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordtype">float</span> normCoeff;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordtype">bool</span> hasTexCoords;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>};</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">#endif </span><span class="comment">// MESH_H</span></div>
-<div class="ttc" id="aclassMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">The Mesh class, used for mesh loading and processing.</div><div class="ttdef"><b>Definition:</b> mesh.h:24</div></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a0c5ad96ef4f1c8d3b23d03e8aed98f50">findNeighbor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> triIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#a67d9b4013ab7d8c32050ea768c46c5cc">faceArea</a>(<span class="keywordtype">int</span> faceIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#aa365461672f50bdcfbc8801d81a13114">computeNormals</a>();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#af39a2a23e4238fe6a3c1120890e36cf3">triangleSplit</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> triIndex);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a8926a81269c4a0e3692aa42ec3413a60">edgeFlip</a>(<span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a8110387c2dbd037ed8f4983f0228fcd2">edgeSplit</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classMesh.html#a5a02fa7197ee462dfcc4b23b4daf249d">orientationTest</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> q, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#ae0fae43c0d69625138c866a3878be7a6">pointInTriangle</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> triIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMesh.html#a0d10ce3845704916095a5f8c084caab1">insert</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classMesh.html#a1977c7c99c32a55604c101e7b0341119">isLocallyDelaunay</a>(<span class="keywordtype">int</span> t1, <span class="keywordtype">int</span> t2) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classMesh.html#a451d0420679b6396f7c72e5e1368b4f2">isInCircumcircleNorm</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> d) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a110e90a73432fb80aeba321830e2cbc7">lawsonAlgorithm</a>();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a7f87338180f9395f7f88ebf92123f4fa">lawsonLocalUpdate</a>(<span class="keywordtype">int</span> p);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#a6940d673430cbc827ea1d283a7eec75a">initializeSuperTriangle</a>();</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMesh.html#aea1b11f590a16be9595cc173cb885f7b">removeSuperTriangle</a>();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    std::vector&lt;Node&gt; vertices;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    std::vector&lt;Triangle&gt; faces;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">float</span> normCoeff;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">bool</span> hasTexCoords;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>};</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">#endif </span><span class="comment">// MESH_H</span></div>
+<div class="ttc" id="aclassMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">The Mesh class, used for mesh loading and processing.</div><div class="ttdef"><b>Definition:</b> mesh.h:26</div></div>
 <div class="ttc" id="aclassMesh_html_a07f5a934061e9ea2183a85747049b80e"><div class="ttname"><a href="classMesh.html#a07f5a934061e9ea2183a85747049b80e">Mesh::saveFile</a></div><div class="ttdeci">int saveFile(const char *link)</div><div class="ttdoc">Loading function who handle the file type.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:293</div></div>
 <div class="ttc" id="aclassMesh_html_a0c5ad96ef4f1c8d3b23d03e8aed98f50"><div class="ttname"><a href="classMesh.html#a0c5ad96ef4f1c8d3b23d03e8aed98f50">Mesh::findNeighbor</a></div><div class="ttdeci">int findNeighbor(unsigned int triIndex, unsigned int a, unsigned int b) const</div><div class="ttdoc">Function who find the neighbor of a triangle.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:416</div></div>
 <div class="ttc" id="aclassMesh_html_a0d10ce3845704916095a5f8c084caab1"><div class="ttname"><a href="classMesh.html#a0d10ce3845704916095a5f8c084caab1">Mesh::insert</a></div><div class="ttdeci">int insert(float x, float y, float z)</div><div class="ttdoc">Insert a point inside a mesh.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:737</div></div>
@@ -202,6 +204,7 @@ $(function() {
 <div class="ttc" id="aclassMesh_html_aea1b11f590a16be9595cc173cb885f7b"><div class="ttname"><a href="classMesh.html#aea1b11f590a16be9595cc173cb885f7b">Mesh::removeSuperTriangle</a></div><div class="ttdeci">void removeSuperTriangle()</div><div class="ttdoc">Remove the super bounding triangle and reconnect correctly the mesh.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:521</div></div>
 <div class="ttc" id="aclassMesh_html_aecf0b14e57804c6eae7b927330c76288"><div class="ttname"><a href="classMesh.html#aecf0b14e57804c6eae7b927330c76288">Mesh::getBoundingRadius</a></div><div class="ttdeci">float getBoundingRadius() const</div><div class="ttdoc">Get the bounding raduis of the mesh.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:482</div></div>
 <div class="ttc" id="aclassMesh_html_af39a2a23e4238fe6a3c1120890e36cf3"><div class="ttname"><a href="classMesh.html#af39a2a23e4238fe6a3c1120890e36cf3">Mesh::triangleSplit</a></div><div class="ttdeci">void triangleSplit(int p, int triIndex)</div><div class="ttdoc">Split a triangle by 3.</div><div class="ttdef"><b>Definition:</b> mesh.cpp:562</div></div>
+<div class="ttc" id="astructVertex_html"><div class="ttname"><a href="structVertex.html">Vertex</a></div><div class="ttdef"><b>Definition:</b> vertex.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
